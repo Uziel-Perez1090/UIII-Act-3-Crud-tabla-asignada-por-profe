@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+    {% block cuerpo %}
+    <div class="row"><!--fila en editar-->
+    <div class="col-md-4 offset-md-4">
+        <h2>editar clientes</h2>
+        <!--aqui codigo tarjeta-->
+        <div class="card"><!--la tarjeta-->
+            <div class="card-body">
+            <form action="/editarMateria/" method="POST">{% csrf_token %} <!-- falta action -->
+                <div class="form-group" py-3>
+                <input type="text" id="txtcodigo" name="txtcodigo" value="{{mismaterias.codigo}}" class="form-control" placeholder="codigo materia" minlenght="1" maxlenght="6" readonly required>
+                </div>
+                <div class="form-group py-3">
+                <input type="text" id="txtnombre" name="txtnombre" value="{{mismaterias.nombre}}" class="form-control" placeholder="nombre materia" maxlenght="100" readonly required>
+                </div>
+                <div class="form-group py-3">
+                    <input type="text" id="numcreditos" name="numcreditos" value="{{mismaterias.creditos}}" class="form-control" min="1" maxlenght="9" required>
+                </div>
+                <div class="form-group py-3">
+                    <button type="submit" class="btn btn-primary">Guardar Clientes</button>
+                </div>
+            </form>
+            </div>
+        </div><!--la tarjeta-->
+
+    <!--aqui codigo tarjeta-->
+    </div>
+    </div><!--fila en editar-->
+
+    {% endblock %}
